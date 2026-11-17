@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #f8fafc;
+    background: #090d16;
+    min-height: 100vh;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes auroraMove {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.78;
+  }
+  50% {
+    transform: translate3d(-4%, 3%, 0) scale(1.06);
+    opacity: 0.96;
+  }
+}
+
+.neo-aurora-backdrop {
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(125deg, #090d16 0%, #0f172a 38%, #1e1b4b 72%, #090d16 100%);
+}
+
+.neo-aurora-backdrop::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(99, 102, 241, 0.28) 0%, transparent 46%),
+    radial-gradient(circle at 18% 78%, rgba(139, 92, 246, 0.2) 0%, transparent 48%);
+  animation: auroraMove 18s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.neo-aurora-backdrop > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neo-aurora-backdrop::before {
+    animation: none;
+  }
+}
+
+.glass-bento {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-bento:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.3);
+  border-color: rgba(165, 180, 252, 0.55);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}

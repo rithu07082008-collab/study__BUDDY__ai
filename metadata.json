@@ -1,0 +1,8 @@
+{
+  "name": "AI Study Buddy (Notes to Quiz)",
+  "description": "Instant exam revision engine turning study notes and chapter PDFs into a 5-bullet summary, key terms, and an interactive MCQ quiz.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
